@@ -58,7 +58,7 @@ Ahora bien se agregó la columna G para colocar aquí el PRECIO FINAL. Teniendo 
 Todos los resultados fueron copiados (Ctrl+c) y pegados especial solo valores (Ctrl+Mayus+v) para eliminar las formulas del archivo.
 
 **RASA**
-En primer lugar para transformar el archivo TXT en XLS se descargó el archivo y se importó en una hoja de cálculo.
+En primer lugar para transformar el archivo TXT se descargó el archivo y se importó en una hoja de cálculo. Al igual que la anterior, Google sheets no permite trabajar con archivos XLS y los transforma en XLSX.
 La base txt. suministrada no contenía un separador de columnas explícito, por lo que se utilizó la opción de Google sheets "separación automática"
 Asi mismo se comprobó esta separación con la herramienta por ancho de columna de excel microsoft.
 Se ajustó la configuración regional en Argentina. 
