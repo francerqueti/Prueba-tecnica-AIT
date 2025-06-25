@@ -3,9 +3,9 @@ Este proyecto contiene el desarrollo de la prueba técnica basada en los archivo
 
 **ANAERÓBICOS**
 Antes de comenzar con las actividades específicas, se aplicaron los requisitos de las instrucciones generales a ambas hojas:
-Se configuró la región de la hoja de cálculo en Argentina. 
-Se ordenaron los precios (columna D) de mayor a menor. Para esto se seleccionó el rango de datos y luego en Datos>Ordenar intervalo>Opciones avanzadas>Ordenar por columna D> de la Z a la A
-Se revisaron cuestiones vinculadas al formato. Se re-configuró el tamaño de las filas para que todas tengan el mismo alto. Tambien se copio el formato de las columnas del modelo suministrado. Se eliminó el formato de las celdas que quedaron obsoletas luego de ordenarlos de mayor a menor. 
+- Se configuró la región de la hoja de cálculo en Argentina. 
+- Se ordenaron los precios (columna D) de mayor a menor. Para esto se seleccionó el rango de datos y luego en Datos>Ordenar intervalo>Opciones avanzadas>Ordenar por columna D> de la Z a la A
+- Se revisaron cuestiones vinculadas al formato. Se re-configuró el tamaño de las filas para que todas tengan el mismo alto. Tambien se copio el formato de las columnas del modelo suministrado. Se eliminó el formato de las celdas que quedaron obsoletas luego de ordenarlos de mayor a menor. 
 Ahora bien, para la primera parte de la actividad (separar el código del producto de su descripción), se añadió una columna (A), nombrada “Código” a la izquierda de la columna (B) “Producto”.
 Para extraer únicamente el número de código de cada producto (columna B), se utilizó la función =LEFT(cadena; num_caracteres), con el objetivo de obtener una cantidad específica de caracteres desde el inicio de la celda que contenía el “producto” (en columna B). En este caso, se extrajeron los primeros 6 caracteres, ya que el código tenía una longitud fija de 6 dígitos.
 Para extender la fórmula hasta el final de la base de datos de manera automática la función LEFT se anidó con la función ARRAY FORMULA, la cual permite extender una fórmula automáticamente a un rango de celdas sin necesidad de copiarla manualmente. Finalmente se aplico: =ARRAYFORMULA(LEFT(B5:B232;6)).
@@ -27,12 +27,13 @@ Se ordenaron los precios (columna D) de mayor a menor.
 Se revisó el formato general de la hoja de calculo.
 Para eliminar todos los espacios de los codigos se utilizó la funcion SUBSTITUTE(texto a buscar; “ “; “”). De esta manera, la función busca todos los espacios y los sustituye por nada. 
 Para el caso de los precios, siguiendo el modelo, se creo una columna (C) en donde el precio se encuentra en formato texto. 
-Luego se aplicó =IF(RIGHT(C#;4)="0000"; VALUE(C#) / 10000; VALUE(C#)). Con esta funcion anidada se cumplimentó con varios requsitos: primero identificar aquellos números terminados en "0000" con RIGHT, en caso de encontrarlos se transformaban en números con VALUE y se dividen por 10000. En caso de que no sea un numero terminado en "0000", se transforma en numero. 
+Luego se aplicó =IF(RIGHT(C#;4)="0000"; VALUE(C#) / 10000; VALUE(C#)). Con esta funcion anidada se cumplimentó con varios requsitos 1) identificar aquellos números terminados en "0000" con RIGHT, 2) en caso de encontrarlos se transformaban en números con VALUE y se dividen por 10000 para eliminar los 4 ceros. 3)En caso de que no sea un numero terminado en "0000", se transforma en numero. 
 De esta manera en la columna D se encuentran números (formato número) que no terminan en "0000".
 Se extendió el mismo procedimiento al resto de la columna. 
 Se copiaron y pegaron solo valores.
+Se corroboró el formato de ambas columnas desde menu-formato-numero.
 Para añadir “,” en los últimos dos digitos se utilizo la opcion “Aumentar decimales” en la barra de tareas. 
-La última actividad requirió una herramienta especial. Se utilizó la siguiente pagina: https://gchq.github.io/CyberChef/ para reconocer los simbolos codificados. 
+La última actividad de este caso requirió una herramienta especial. Se utilizó la siguiente pagina: https://gchq.github.io/CyberChef/ para reconocer los simbolos codificados. 
 Una vez que se obtuvieron estos simbolos se aplicó =SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A#; "╝"; ""); "┤"; ""); "▄"; ""); "▒"; ""). De esta manera, esta función permite reemplazar los simbolos previamente identificados por nada (“”).
 
 
